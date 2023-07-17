@@ -25,10 +25,11 @@ if(isset($_REQUEST['sbt-btn']))
 	$firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $department = $_POST['department'];
-    $emailid = $_POST['emailid'];
-    $pwd = md5($_POST['pwd']);
+    $email = $_POST['email'];
+    $id = $_POST['id'];
+    
 
-    $insert_employee = mysqli_query($conn," update tbl_user set firstname='$firstname', lastname='$lastname', department='$department', emailid='$emailid', password='$pwd'");
+    $insert_employee = mysqli_query($conn," UPDATE tbl_user set firstname='$firstname', lastname='$lastname', department='$department', emailid='$email', password='$pwd' where id = '$id'");
 
     if($insert_employee > 0)
     {
@@ -68,48 +69,37 @@ exit();
                     <label class="col-lg-4 col-form-label" for="val-date">Select Date <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
-                                                <input class="form-control" type="hidden"  name="id" required>
+                                                <input class="form-control" type="hidden"  name="id" value ="<?php if(isset($setid)){echo $setid; }?>">
                                             </div>
-                                             <label class="col-lg-4 col-form-label" for="val-date">BOOK NAME<span class="text-danger">*</span>
+                                             <label class="col-lg-4 col-form-label" for="val-date">NAME<span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-8">
                                                 <br>
                                                <input class="form-control" name="firstname" id="firstname"  value="<?php if(isset($name)){echo $name; }?>">
                                               
                                             </div>
-                                            
-                                             <label class="col-lg-4 col-form-label" for="val-date">NO. OF BOOK SOLD<span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="val-date">LAstNAME<span class="text-danger">*</span>
                                             </label>
-                                           
                                             <div class="col-lg-8">
                                                 <br>
-                                               <input class="form-control" name="booksold[]" id="booksold" value="<?php if(isset($booksold)){ echo $booksold; }?>">
+                                               <input class="form-control" name="lastname" id="lastname"  value="<?php if(isset($lastname)){echo $lastname; }?>">
+                                              
                                             </div>
-											
-											 <label class="col-lg-4 col-form-label" for="val-date">BOOK PRICE<span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="val-date">Email<span class="text-danger">*</span>
                                             </label>
-                                           
                                             <div class="col-lg-8">
                                                 <br>
-                                               <input class="form-control" name="bookprice[]" id="bookprice" value="<?php if(isset($bookprice)){ echo $bookprice; }?>">
+                                               <input class="form-control" name="email" id="email"  value="<?php if(isset($email)){echo $email; }?>">
+                                              
                                             </div>
-											
-											 <label class="col-lg-4 col-form-label" for="val-date">DIRECT SALES<span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="val-date">NAME<span class="text-danger">*</span>
                                             </label>
-                                           
                                             <div class="col-lg-8">
                                                 <br>
-                                               <input class="form-control" name="directsales[]" id="directsales" value="<?php if(isset($directsales)){ echo $directsales; }?>">
+                                               <input class="form-control" name="department" id="department"  value="<?php if(isset($dept)){echo $dept; }?>">
+                                              
                                             </div>
-											
-											 <label class="col-lg-4 col-form-label" for="val-date">INDIRECT SALES<span class="text-danger">*</span>
-                                            </label>
-                                           
-                                            <div class="col-lg-8">
-                                                <br>
-                                               <input class="form-control" name="indirectsales[]" id="indirectsales" value="<?php if(isset($indirectsales)){ echo $indirectsales; }?>">
-                                            </div>
-                                            <br>
+                                                                                         <br>
                                             
                                         </div>
                                         <div class="col-lg-8 ml-auto">
