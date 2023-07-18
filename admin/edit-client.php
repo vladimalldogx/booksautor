@@ -29,7 +29,7 @@ if(isset($_REQUEST['sbt-btn']))
     $id = $_POST['id'];
     
 
-    $insert_employee = mysqli_query($conn," UPDATE tbl_user set firstname='$firstname', lastname='$lastname', department='$department', emailid='$email', password='$pwd' where id = '$id'");
+    $insert_employee = mysqli_query($conn," UPDATE tbl_user set firstname='$firstname', lastname='$lastname', department='$department', emailid='$email', where id = '$id'");
 
     if($insert_employee > 0)
     {
