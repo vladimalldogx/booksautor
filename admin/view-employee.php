@@ -1,7 +1,12 @@
 <?php
 session_start();
 include ('../connection.php');
+
 $id = $_SESSION['id'];
+if(isset($_SESSION['message'])){
+  echo $_SESSION['message'];
+  unset($_SESSION['message']);
+}
 if(empty($id))
 {
     header("Location: index.php"); 
@@ -56,7 +61,9 @@ if(empty($id))
                                                 <td><?php echo $row['emailid']; ?></td>
 
                                                 <td><!--<a href="edit-client.php?id=$res[id]"> ang karaan-->
-                                                  <a href="edit-client.php?id=<?=$row['id']?>">EDIT</a></td>
+                                                  <a href="edit-client.php?id=<?=$row['id']?>">EDIT</a>
+                                                  <a href="delete-client.php?id=<?=$row['id']?>">Delete</a>
+                                                  </td>
                                                 </tr>
 										<?php $sn++; } ?>
                                            
